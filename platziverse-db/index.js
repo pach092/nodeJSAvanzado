@@ -1,6 +1,19 @@
 'use strict'
 
+const setupDatabase = require('./lib/db')
+const setupAgentModel = require('./models/agent')
+const SetupMetricModel = require('./models/metrics')
+
 module.exports = async function (config) {
+  const sequelize = setupDatabase(config)
+  const AgentModel = setupAgentModel(config)
+  const MetricModel = SetupMetricModel(config)
+
+  AgentModel.hasMany(MetricModel)
+  MetricModel.belongsTo(AgentModel)
+
+  await sequelize.authenticate()
+
   const Agent = {}
   const Metric = {}
 
