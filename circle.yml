@@ -8,4 +8,10 @@ dependencies:
 
 test:
   override:
-    - cd platziverse-db; npm run lint
+    - cd platziverse-db; npm test
+
+deployment:
+  qa:
+    branch: ejercicios
+    commands:
+      - cd platziverse-db; npm run lint
