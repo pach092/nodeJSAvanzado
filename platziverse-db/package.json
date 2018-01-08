@@ -1,0 +1,22 @@
+{
+  "name": "platziverse-db",
+  "version": "0.1.0",
+  "description": "A simple IoT platform - DB module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pach092/nodeJSAvanzado.git"
+  },
+  "author": "Pacho Bernal <pachobernal5@gmail.com> (https://twitter.com/Pacho_92)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pach092/nodeJSAvanzado/issues"
+  },
+  "homepage": "https://github.com/pach092/nodeJSAvanzado#readme",
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
+}
