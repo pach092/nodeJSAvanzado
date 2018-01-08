@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 8.9.3
+
+dependencies:
+  override:
+    - cd platziverse-db; npm install
+
+test:
+  override:
+    - cd platziverse-db; npm run lint
