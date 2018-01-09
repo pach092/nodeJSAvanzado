@@ -14,18 +14,13 @@ let MetricStub = {
   belongsTo: sinon.spy()
 }
 
-let single = Object.assign({}, agentFixtures.single)
 let id = 1
 let uuid = 'yyy-yyy-yyy'
 let AgentStub = null
 let db = null
 let sandbox = null
 
-let uuidArgs = {
-  where: {
-    uuid
-  }
-}
+let single = Object.assign({}, agentFixtures.single)
 
 let connectedArgs = {
   where: { connected: true }
@@ -61,24 +56,24 @@ test.beforeEach(async () => {
     toJSON () { return newAgent }
   }))
 
-  // Model findOne Stub
-  AgentStub.findOne = sandbox.stub()
-  AgentStub.findOne.withArgs(uuidArgs).returns(Promise.resolve(agentFixtures.byUuid(uuid)))
+  // Model update Stub
+  AgentStub.update = sandbox.stub()
+  AgentStub.update.withArgs(single, uuidArgs).returns(Promise.resolve(single))
 
   // Model findById Stub
   AgentStub.findById = sandbox.stub()
   AgentStub.findById.withArgs(id).returns(Promise.resolve(agentFixtures.byId(id)))
 
-  // Model update Stub
-  AgentStub.update = sandbox.stub()
-  AgentStub.update.withArgs(single, uuidArgs).returns(Promise.resolve(single))
+  // Model findOne Stub
+  AgentStub.findOne = sandbox.stub()
+  AgentStub.findOne.withArgs(uuidArgs).returns(Promise.resolve(agentFixtures.byUuid(uuid)))
 
-  // Model sindAll Stub
+  // Model findAll Stub
   AgentStub.findAll = sandbox.stub()
   AgentStub.findAll.withArgs().returns(Promise.resolve(agentFixtures.all))
   AgentStub.findAll.withArgs(connectedArgs).returns(Promise.resolve(agentFixtures.connected))
   AgentStub.findAll.withArgs(usernameArgs).returns(Promise.resolve(agentFixtures.platzi))
-  
+
   const setupDatabase = proxyquire('../', {
     './models/agent': () => AgentStub,
     './models/metric': () => MetricStub
@@ -95,7 +90,7 @@ test('Agent', t => {
   t.truthy(db.Agent, 'Agent service should exist')
 })
 
-test.serial('Setup', t => {
+test.serial('Setup Agent', t => {
   t.true(AgentStub.hasMany.called, 'AgentModel.hasMany was executed')
   t.true(AgentStub.hasMany.calledWith(MetricStub), 'Argument should be the MetricModel')
   t.true(MetricStub.belongsTo.called, 'MetricModel.belongsTo was executed')
