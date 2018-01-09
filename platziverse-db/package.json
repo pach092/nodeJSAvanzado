@@ -19,18 +19,20 @@
   },
   "homepage": "https://github.com/pach092/nodeJSAvanzado#readme",
   "devDependencies": {
-    "ava": "^0.24.0",
-    "nyc": "^11.4.1",
-    "sqlite3": "^3.1.13",
+    "ava": "^0.21.0",
+    "nyc": "^11.1.0",
+    "proxyquire": "^1.8.0",
+    "sinon": "^3.1.0",
+    "sqlite3": "^3.1.9",
     "standard": "^10.0.3"
   },
   "dependencies": {
-    "chalk": "^2.3.0",
-    "debug": "^3.1.0",
+    "chalk": "^2.1.0",
+    "debug": "^2.6.8",
     "defaults": "^1.0.3",
-    "inquirer": "^5.0.0",
-    "pg": "^7.4.1",
+    "inquirer": "^3.2.1",
+    "pg": "^7.1.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.29.2"
+    "sequelize": "^4.4.2"
   }
 }
