@@ -1,0 +1,23 @@
+{
+  "name": "platziverse-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "bin": "platziverse.js",
+  "scripts": {
+    "lint": "standard"
+  },
+  "author": "Pacho Bernal <pachobernal5@gmail.com> (https://twitter.com/Pacho_92)",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "args": "^3.0.8",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.8.5",
+    "minimist": "^1.2.0",
+    "moment": "^2.20.1",
+    "platziverse-agent": "file:../platziverse-agent"
+  }
+}
